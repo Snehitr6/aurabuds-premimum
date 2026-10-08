@@ -1,0 +1,2127 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #000;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  background: #000;
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #52525b;
+}
+
+::selection {
+  background: #fff;
+  color: #000;
+}
+
+/* =========================================================
+   BUTTON COLOR FIX
+========================================================= */
+
+button.bg-white,
+a.bg-white {
+  color: #000 !important;
+}
+
+button.bg-black,
+a.bg-black {
+  color: #fff !important;
+}
+
+button.text-black,
+a.text-black {
+  color: #000 !important;
+}
+
+button.text-white,
+a.text-white {
+  color: #fff !important;
+}
+
+button.bg-white svg,
+a.bg-white svg {
+  color: #000 !important;
+}
+
+button.bg-black svg,
+a.bg-black svg {
+  color: #fff !important;
+}
+
+/* =========================================================
+   FORM ELEMENTS
+========================================================= */
+
+input,
+textarea,
+select {
+  color: #fff;
+}
+
+select option {
+  background: #09090b;
+  color: #fff;
+}
+
+/* =========================================================
+   GENERAL FLOAT ANIMATION
+========================================================= */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* =========================================================
+   SLOW PULSE
+========================================================= */
+
+@keyframes pulseSlow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.04);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 3s ease-in-out infinite;
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: revealUp 0.8s ease both;
+}
+
+/* =========================================================
+   PAGE ENTRY
+========================================================= */
+
+@keyframes pageEntry {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+main {
+  animation: pageEntry 0.45s ease both;
+}
+
+/* =========================================================
+   PREMIUM CARDS
+========================================================= */
+
+.premium-card {
+  transition:
+    transform 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease,
+    background 0.45s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card {
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================================
+   HIDE SCROLLBAR
+========================================================= */
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================================
+   PREMIUM AURABUDS HERO
+========================================================= */
+
+.hero-fade {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-delay-1 {
+  animation-delay: 0.05s;
+}
+
+.hero-delay-2 {
+  animation-delay: 0.12s;
+}
+
+.hero-delay-3 {
+  animation-delay: 0.2s;
+}
+
+.hero-delay-4 {
+  animation-delay: 0.28s;
+}
+
+.hero-delay-5 {
+  animation-delay: 0.36s;
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   HERO PRODUCT REVEAL
+========================================================= */
+
+.hero-product {
+  animation: productReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+    0.15s both;
+}
+
+@keyframes productReveal {
+  from {
+    opacity: 0;
+    transform: translateX(20px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* =========================================================
+   HERO FLOATING ELEMENTS
+========================================================= */
+
+.hero-product [class*="animate-[float"] {
+  will-change: transform;
+}
+
+/* =========================================================
+   HERO PRODUCT HOVER
+========================================================= */
+
+.hero-product img {
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
+
+.hero-product:hover img {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   HERO DESKTOP SPACING
+   Removes unnecessary left/right empty space
+========================================================= */
+
+@media (min-width: 1024px) {
+  .hero-product {
+    margin-left: -25px;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1280px) {
+  .hero-product {
+    margin-left: -45px;
+  }
+}
+
+/* =========================================================
+   HERO TABLET
+========================================================= */
+
+@media (max-width: 1023px) {
+  .hero-product {
+    margin-left: 0;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .reveal {
+    animation-duration: 0.6s;
+  }
+
+  .hero-fade {
+    transform: translateY(15px);
+  }
+
+  .hero-product {
+    width: 100%;
+    max-width: 430px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .hero-product {
+    width: 100%;
+    max-width: 420px;
+    margin-left: 0;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .hero-product {
+    max-width: 360px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-fade,
+  .hero-product {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+/* =========================================================
+   AURABUDS HERO
+========================================================= */
+
+.hero-fade {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-delay-1 {
+  animation-delay: 0.05s;
+}
+
+.hero-delay-2 {
+  animation-delay: 0.12s;
+}
+
+.hero-delay-3 {
+  animation-delay: 0.2s;
+}
+
+.hero-delay-4 {
+  animation-delay: 0.28s;
+}
+
+.hero-delay-5 {
+  animation-delay: 0.36s;
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-product {
+  animation: productReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+    0.15s both;
+}
+
+@keyframes productReveal {
+  from {
+    opacity: 0;
+    transform: translateX(18px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.hero-product img {
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
+
+.hero-product:hover img {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   FLOATING BADGES
+========================================================= */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1023px) {
+  .hero-product {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-product {
+    width: 100%;
+    max-width: 430px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-product {
+    max-width: 410px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-product {
+    max-width: 360px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade,
+  .hero-product {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+/* =========================================================
+   GLOBAL WEBSITE WIDTH FIX
+   Removes excessive left/right whitespace
+========================================================= */
+
+@media (min-width: 1024px) {
+  /* Main desktop containers */
+  .max-w-7xl {
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  /* Keep content away from the absolute screen edge */
+  .max-w-7xl.mx-auto {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1280px) {
+  .max-w-7xl {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+}
+
+/* =========================================================
+   VERY LARGE SCREENS
+========================================================= */
+
+@media (min-width: 1536px) {
+  .max-w-7xl {
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 1023px) {
+  .max-w-7xl {
+    width: 100%;
+  }
+}
+/* =========================================================
+   AURABUDS PREMIUM HERO
+========================================================= */
+
+.hero-fade {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-delay-1 {
+  animation-delay: 0.05s;
+}
+
+.hero-delay-2 {
+  animation-delay: 0.12s;
+}
+
+.hero-delay-3 {
+  animation-delay: 0.2s;
+}
+
+.hero-delay-4 {
+  animation-delay: 0.28s;
+}
+
+.hero-delay-5 {
+  animation-delay: 0.36s;
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   PRODUCT SHOWCASE
+========================================================= */
+
+.hero-product {
+  animation: productReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+    0.15s both;
+}
+
+@keyframes productReveal {
+  from {
+    opacity: 0;
+    transform: translateX(18px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.hero-product img {
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+}
+
+.hero-product:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1024px) {
+  .hero-product {
+    margin-left: 0;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1023px) {
+  .hero-product {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .hero-product {
+    max-width: 430px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .hero-product {
+    max-width: 410px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .hero-product {
+    max-width: 350px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade,
+  .hero-product {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+/* =========================================================
+   AURABUDS HERO — FINAL LAYOUT
+========================================================= */
+
+.hero-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-delay-1 {
+  animation-delay: 0.05s;
+}
+
+.hero-delay-2 {
+  animation-delay: 0.12s;
+}
+
+.hero-delay-3 {
+  animation-delay: 0.2s;
+}
+
+.hero-delay-4 {
+  animation-delay: 0.28s;
+}
+
+.hero-delay-5 {
+  animation-delay: 0.36s;
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   PRODUCT ANIMATION
+========================================================= */
+
+.hero-product {
+  animation: heroProductIn 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+    0.15s both;
+}
+
+@keyframes heroProductIn {
+  from {
+    opacity: 0;
+    transform: translateX(35px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.hero-product img {
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+}
+
+.hero-product:hover img {
+  transform: scale(1.035);
+  filter: brightness(1.06);
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1280px) {
+  .hero-left {
+    left: 48px;
+  }
+
+  .hero-right {
+    right: 48px;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1536px) {
+  .hero-left {
+    left: 64px;
+  }
+
+  .hero-right {
+    right: 64px;
+  }
+
+  .hero-product {
+    width: 600px;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1023px) {
+  .hero-left {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    padding-top: 70px;
+  }
+
+  .hero-right {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    margin: 60px auto 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-product {
+    width: 500px;
+    max-width: 90vw;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .hero-left {
+    padding-top: 50px;
+  }
+
+  .hero-right {
+    margin-top: 45px;
+  }
+
+  .hero-product {
+    width: 400px;
+    max-width: 94vw;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .hero-product {
+    width: 350px;
+    max-width: 94vw;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade,
+  .hero-product {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+/* =========================================================
+   AURABUDS HERO
+========================================================= */
+
+.aurabuds-hero {
+  isolation: isolate;
+}
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.aurabuds-hero-content {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 55%;
+  max-width: 720px;
+}
+
+.hero-heading {
+  margin-top: 28px;
+  font-size: clamp(4rem, 6.2vw, 6.7rem);
+  line-height: 0.86;
+  letter-spacing: -0.065em;
+  font-weight: 900;
+}
+
+.hero-description {
+  margin-top: 28px;
+  max-width: 590px;
+  color: #a1a1aa;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #a1a1aa;
+  font-size: 12px;
+}
+
+/* =========================================================
+   PRODUCT AREA
+========================================================= */
+
+.hero-product-area {
+  position: relative;
+  z-index: 10;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hero-product {
+  position: relative;
+  width: min(560px, 100%);
+  aspect-ratio: 1 / 1;
+  animation: heroProductReveal 0.9s
+    cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+@keyframes heroProductReveal {
+  from {
+    opacity: 0;
+    transform: translateX(35px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.hero-product-card {
+  position: absolute;
+  inset: 4%;
+  overflow: hidden;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #090909;
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.8),
+    0 0 80px rgba(130, 0, 30, 0.15);
+}
+
+.hero-product-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+}
+
+.hero-product:hover .hero-product-image {
+  transform: scale(1.035);
+  filter: brightness(1.06);
+}
+
+.hero-product-glow {
+  position: absolute;
+  inset: -80px;
+  border-radius: 999px;
+  background: rgba(150, 0, 35, 0.16);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.hero-product-ring {
+  position: absolute;
+  inset: -35px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 40, 65, 0.08);
+  pointer-events: none;
+}
+
+.hero-dot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hero-dot-one {
+  left: -4px;
+  top: 18%;
+}
+
+.hero-dot-two {
+  right: -3px;
+  bottom: 18%;
+}
+
+/* =========================================================
+   DECORATIVE RINGS
+========================================================= */
+
+.hero-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-ring-one {
+  width: 720px;
+  height: 720px;
+  right: -230px;
+  top: -120px;
+  border: 1px solid rgba(255, 35, 60, 0.08);
+}
+
+.hero-ring-two {
+  width: 540px;
+  height: 540px;
+  right: -100px;
+  top: 0;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+.hero-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.7s
+    cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-delay-1 {
+  animation-delay: 0.05s;
+}
+
+.hero-delay-2 {
+  animation-delay: 0.12s;
+}
+
+.hero-delay-3 {
+  animation-delay: 0.2s;
+}
+
+.hero-delay-4 {
+  animation-delay: 0.28s;
+}
+
+.hero-delay-5 {
+  animation-delay: 0.36s;
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1023px) {
+  .aurabuds-hero-content {
+    min-height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+    padding-top: 55px;
+    padding-bottom: 70px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 760px;
+    text-align: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-trust {
+    justify-content: center;
+  }
+
+  .hero-product-area {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-product {
+    width: min(500px, 92vw);
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .aurabuds-hero {
+    padding-top: 72px;
+  }
+
+  .aurabuds-hero-content {
+    gap: 42px;
+    padding-top: 28px;
+    padding-bottom: 60px;
+  }
+
+  .hero-content {
+    text-align: left;
+  }
+
+  .hero-heading {
+    margin-top: 22px;
+    font-size: clamp(3.35rem, 16vw, 4.7rem);
+    line-height: 0.87;
+    letter-spacing: -0.07em;
+  }
+
+  .hero-description {
+    margin-top: 22px;
+    font-size: 14px;
+    line-height: 1.65;
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    justify-content: flex-start;
+    gap: 9px;
+    margin-top: 24px;
+  }
+
+  .hero-buttons a {
+    min-height: 46px;
+  }
+
+  .hero-trust {
+    justify-content: flex-start;
+    gap: 12px 18px;
+    margin-top: 25px;
+    padding-top: 18px;
+  }
+
+  .hero-trust-item {
+    font-size: 10px;
+  }
+
+  .hero-product-area {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .hero-product {
+    width: 94vw;
+    max-width: 410px;
+  }
+
+  .hero-product-card {
+    border-radius: 24px;
+  }
+
+  .hero-product-ring {
+    inset: -15px;
+  }
+
+  .hero-product-glow {
+    inset: -35px;
+  }
+
+  .hero-ring-one {
+    width: 420px;
+    height: 420px;
+    right: -250px;
+    top: 35%;
+  }
+
+  .hero-ring-two {
+    width: 330px;
+    height: 330px;
+    right: -180px;
+    top: 45%;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+  .aurabuds-hero-content {
+    gap: 36px;
+  }
+
+  .hero-heading {
+    font-size: 3.15rem;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+  }
+
+  .hero-trust {
+    gap: 10px 14px;
+  }
+
+  .hero-trust-item {
+    font-size: 9px;
+  }
+
+  .hero-product {
+    width: 96vw;
+  }
+
+  .hero-product-card {
+    border-radius: 20px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+  .hero-heading {
+    font-size: 2.8rem;
+  }
+
+  .hero-product {
+    width: 98vw;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade,
+  .hero-product {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-product-image {
+    transition: none;
+  }
+}
+/* =========================================================
+   AURABUDS PREMIUM PRELOADER
+========================================================= */
+
+.aurabuds-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 255, 255, 0.07),
+      transparent 25%
+    ),
+    #050505;
+
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 1;
+  transform: scale(1);
+
+  transition:
+    opacity 0.55s ease,
+    transform 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.aurabuds-preloader.loader-exit {
+  opacity: 0;
+  transform: scale(1.08);
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.preloader-grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image: radial-gradient(
+    circle at center,
+    black,
+    transparent 75%
+  );
+
+  opacity: 0.45;
+}
+
+
+/* =========================================================
+   GLOW ORBS
+========================================================= */
+
+.preloader-orb {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  filter: blur(100px);
+
+  pointer-events: none;
+
+  opacity: 0.12;
+
+  animation: orbFloat 7s ease-in-out infinite;
+}
+
+.orb-one {
+  top: -220px;
+  left: -180px;
+  background: #ffffff;
+}
+
+.orb-two {
+  right: -220px;
+  bottom: -220px;
+  background: #888;
+
+  animation-delay: -3s;
+}
+
+@keyframes orbFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(30px, -25px, 0);
+  }
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.preloader-content {
+  position: relative;
+  z-index: 5;
+
+  width: min(760px, 90vw);
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   TOP LABEL
+========================================================= */
+
+.preloader-top {
+  position: absolute;
+  top: 34px;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.28em;
+
+  color: rgba(255, 255, 255, 0.38);
+
+  animation: fadeDown 1s ease both;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   EARBUD STAGE
+========================================================= */
+
+.earbud-stage {
+  position: relative;
+
+  width: 250px;
+  height: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: productAppear 1.1s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+@keyframes productAppear {
+  from {
+    opacity: 0;
+    transform:
+      translateY(35px)
+      scale(0.82);
+    filter: blur(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+    filter: blur(0);
+  }
+}
+
+
+/* =========================================================
+   EARBUD
+========================================================= */
+
+.earbud {
+  position: relative;
+
+  width: 90px;
+  height: 145px;
+
+  transform:
+    rotate(20deg)
+    translateY(5px);
+
+  filter:
+    drop-shadow(
+      0 25px 35px
+      rgba(255, 255, 255, 0.08)
+    );
+
+  animation:
+    earbudFloat 4s ease-in-out infinite;
+}
+
+@keyframes earbudFloat {
+  0%,
+  100% {
+    transform:
+      rotate(20deg)
+      translateY(5px);
+  }
+
+  50% {
+    transform:
+      rotate(18deg)
+      translateY(-8px);
+  }
+}
+
+
+/* Earbud head */
+
+.earbud-head {
+  position: absolute;
+
+  top: 0;
+  left: 4px;
+
+  width: 76px;
+  height: 88px;
+
+  border-radius:
+    50%
+    48%
+    42%
+    46%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #d9d9d9 35%,
+      #8c8c8c 70%,
+      #eeeeee 100%
+    );
+
+  box-shadow:
+    inset -8px -10px 18px
+      rgba(0, 0, 0, 0.24),
+
+    inset 7px 5px 12px
+      rgba(255, 255, 255, 0.8),
+
+    0 15px 35px
+      rgba(255, 255, 255, 0.1);
+}
+
+
+/* Earbud highlight */
+
+.earbud-highlight {
+  position: absolute;
+
+  top: 14px;
+  left: 18px;
+
+  width: 22px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  filter: blur(4px);
+
+  transform: rotate(-25deg);
+}
+
+
+/* Earbud stem */
+
+.earbud-stem {
+  position: absolute;
+
+  top: 66px;
+  left: 38px;
+
+  width: 32px;
+  height: 78px;
+
+  border-radius:
+    8px
+    8px
+    18px
+    18px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #737373,
+      #eeeeee 48%,
+      #8b8b8b
+    );
+
+  box-shadow:
+    inset 4px 0 6px
+      rgba(255, 255, 255, 0.35),
+
+    inset -5px 0 8px
+      rgba(0, 0, 0, 0.25);
+}
+
+.stem-light {
+  position: absolute;
+
+  top: 18px;
+  left: 7px;
+
+  width: 5px;
+  height: 25px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  filter: blur(2px);
+}
+
+
+/* =========================================================
+   RINGS
+========================================================= */
+
+.sound-ring {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.55);
+
+  animation: ringPulse 3s ease-out infinite;
+}
+
+.ring-one {
+  width: 135px;
+  height: 135px;
+
+  animation-delay: 0s;
+}
+
+.ring-two {
+  width: 190px;
+  height: 190px;
+
+  animation-delay: 0.7s;
+}
+
+.ring-three {
+  width: 250px;
+  height: 250px;
+
+  animation-delay: 1.4s;
+}
+
+@keyframes ringPulse {
+  0% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      scale(0.45);
+  }
+
+  20% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   SOUND WAVE
+========================================================= */
+
+.wave {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  opacity: 0.4;
+}
+
+.wave-left {
+  left: 4px;
+}
+
+.wave-right {
+  right: 4px;
+}
+
+.wave span {
+  display: block;
+
+  width: 2px;
+
+  border-radius: 20px;
+
+  background: #fff;
+
+  animation: soundWave 1.2s ease-in-out infinite;
+}
+
+.wave span:nth-child(1) {
+  height: 16px;
+  animation-delay: 0s;
+}
+
+.wave span:nth-child(2) {
+  height: 28px;
+  animation-delay: 0.15s;
+}
+
+.wave span:nth-child(3) {
+  height: 20px;
+  animation-delay: 0.3s;
+}
+
+@keyframes soundWave {
+  0%,
+  100% {
+    transform: scaleY(0.45);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: scaleY(1.2);
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand-reveal {
+  margin-top: 10px;
+
+  text-align: center;
+
+  animation: brandReveal 1s
+    0.25s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+@keyframes brandReveal {
+  from {
+    opacity: 0;
+    transform:
+      translateY(25px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+.brand-reveal h1 {
+  margin: 0;
+
+  font-size: clamp(42px, 8vw, 78px);
+
+  line-height: 0.9;
+
+  font-weight: 900;
+
+  letter-spacing:
+    -0.075em;
+
+  color: #fff;
+
+  background:
+    linear-gradient(
+      110deg,
+      #777 0%,
+      #fff 35%,
+      #aaa 50%,
+      #fff 65%,
+      #777 100%
+    );
+
+  background-size: 220% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  animation: logoShine 3s
+    linear infinite;
+}
+
+@keyframes logoShine {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -20% center;
+  }
+}
+
+.brand-line {
+  width: 45px;
+  height: 1px;
+
+  margin: 18px auto 13px;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  animation: lineGrow 1s 0.7s ease both;
+}
+
+@keyframes lineGrow {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 45px;
+  }
+}
+
+.brand-reveal p {
+  margin: 0;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing:
+    0.42em;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.loader-bottom {
+  position: absolute;
+
+  bottom: 36px;
+
+  width: 100%;
+
+  animation:
+    fadeUp 1s
+    0.6s
+    ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loader-progress-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing:
+    0.3em;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+}
+
+.loader-progress-row strong {
+  color: #fff;
+
+  font-size: 9px;
+}
+
+.loader-progress {
+  width: 100%;
+
+  height: 1px;
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  overflow: hidden;
+}
+
+.loader-progress-fill {
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #555,
+      #fff
+    );
+
+  box-shadow:
+    0 0 12px
+    rgba(255, 255, 255, 0.45);
+
+  transition:
+    width 0.12s ease;
+}
+
+
+/* =========================================================
+   FLASH
+========================================================= */
+
+.preloader-flash {
+  position: absolute;
+
+  inset: 0;
+
+  background: #fff;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 20;
+}
+
+.loader-exit .preloader-flash {
+  animation:
+    loaderFlash 0.55s ease;
+}
+
+@keyframes loaderFlash {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.08;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .preloader-content {
+    width: calc(100% - 40px);
+  }
+
+  .preloader-top {
+    top: 25px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.2em;
+  }
+
+  .earbud-stage {
+    width: 220px;
+    height: 220px;
+  }
+
+  .earbud {
+    transform:
+      rotate(20deg)
+      scale(0.85);
+  }
+
+  .ring-three {
+    width: 220px;
+    height: 220px;
+  }
+
+  .brand-reveal h1 {
+    font-size: 46px;
+  }
+
+  .brand-reveal p {
+    font-size: 7px;
+
+    letter-spacing: 0.3em;
+  }
+
+  .loader-bottom {
+    bottom: 25px;
+  }
+
+  .loader-progress-row {
+    font-size: 7px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .aurabuds-preloader *,
+  .aurabuds-preloader {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
